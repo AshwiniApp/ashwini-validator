@@ -52,4 +52,4 @@ def accepted(request, id, limit):
 def rejected(rejected, id, limit):
 	if ref.child(id + '/status').get() == 'Pending':
 		ref.child(id).update({'status' : 'Rejected'})
-	return HttpResponseRedirect(reverse('limiter', args = [limit]))
+	return HttpResponseRedirect(reverse('limiter', args = purl[limit]))

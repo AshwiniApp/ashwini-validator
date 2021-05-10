@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Login</title>
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/Login-Form-blue-Gradient-1.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/Login-Form-blue-Gradient.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body>
+	<section>
+		<div class="lgp-hd">
+			<h2><strong>ASKlepius</strong></h2>
+			<h5><strong>login to view Dashboard</strong></h5>
+		</div>
+		<div class="container login-cont">
+			<div class="row">
+				<div class="col-10 col-sm-6 col-md-4 col-lg-4 offset-1 offset-sm-3 offset-md-4 offset-lg-4 login-col"><i class="icon ion-lock-combination"></i>
+					<form class="login-form" method="post" action="">
+						{% csrf_token %}
+						{{form.as_p}}						
+						<div class="form-group"><button class="btn btn-light btn-lg login-btn" type="submit"><strong>Login</strong></button></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
