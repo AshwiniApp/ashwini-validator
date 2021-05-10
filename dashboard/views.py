@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from decouple import config
 import firebase_admin
 from firebase_admin import db
@@ -12,6 +13,7 @@ default_app = firebase_admin.initialize_app(asklepius_obj, {
 
 ref = db.reference('users')
 
+@login_required
 def home(request, limit = -1):
 	snapshot = ref.get()
 	patient_data = dict()
@@ -49,7 +51,7 @@ def accepted(request, id, limit):
 	return HttpResponseRedirect(reverse('limiter', args = [limit]))
 
 
-def rejected(rejected, id, limit):
+def rejected(request, id, limit):
 	if ref.child(id + '/status').get() == 'Pending':
-		ref.child(id).update({'status' : 'Rejected'})
-	return HttpResponseRedirect(reverse('limiter', args = purl[limit]))
+		ref.child(id).update({'status' : 'Rejected', 'Reason' : request.POST['msg']})
+	return HttpResponseRedirect(reverse('limiter', args = [limit]))
