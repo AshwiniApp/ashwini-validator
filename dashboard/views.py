@@ -23,7 +23,7 @@ def home(request, limit = -1):
 
 	if (request.method == 'POST'):
 		for patient, patient_details in snapshot.items():
-			if patient_details['regID'] == request.POST(['id']):
+			if patient_details['regID'] == request.POST['id'] and patient_details['status'] == 'Pending':
 				patient_data[patient] = patient_details
 				result_found = True
 			if patient_details['status'] == 'Pending':
