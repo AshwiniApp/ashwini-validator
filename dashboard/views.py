@@ -41,3 +41,15 @@ def home(request, limit = -1):
 			'total_entries' : total_entries,
 			'limit' : limit
 	})
+
+
+def accepted(request, id, limit):
+	if ref.child(id + '/status').get() == 'Pending':
+		ref.child(id).update({'status' : 'Verified'})
+	return HttpResponseRedirect(reverse('limiter', args = [limit]))
+
+
+def rejected(rejected, id, limit):
+	if ref.child(id + '/status').get() == 'Pending':
+		ref.child(id).update({'status' : 'Rejected'})
+	return HttpResponseRedirect(reverse('limiter', args = [limit]))
