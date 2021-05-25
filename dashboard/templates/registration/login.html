@@ -15,19 +15,18 @@
 
 <body>
 	<section>
+
+		<div class="container login-cont">
 		<div class="lgp-hd">
-			<h2><strong>ASKlepius</strong></h2>
+			<h2><strong>ASKLEPIUS</strong></h2>
 			<h5><strong>login to view Dashboard</strong></h5>
 		</div>
-		<div class="container login-cont">
-			<div class="row">
-				<div class="col-10 col-sm-6 col-md-4 col-lg-4 offset-1 offset-sm-3 offset-md-4 offset-lg-4 login-col"><i class="icon ion-lock-combination"></i>
-					<form class="login-form" method="post" action="">
-						{% csrf_token %}
-						{{form.as_p}}						
-						<div class="form-group"><button class="btn btn-light btn-lg login-btn" type="submit"><strong>Login</strong></button></div>
-					</form>
-				</div>
+				<div class="col-lg-6 center background-white">
+          <form class="login-form" method="post" action="">
+						<input type="text" name="" id="name" class="form-control" placeholder="Login" required=""><br>
+						<input type="password" name="" id="name" class="form-control" placeholder="Password" required="">
+						<button class="btn btn-light btn-lg login-btn" type="submit"><strong>Login</strong></button>
+          </form><br>
 			</div>
 		</div>
 	</section>
