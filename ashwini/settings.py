@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'asklepius.urls'
+ROOT_URLCONF = 'ashwini.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'asklepius.wsgi.application'
+WSGI_APPLICATION = 'ashwini.wsgi.application'
 
 
 # Database
