@@ -1,5 +1,5 @@
 
-db.sqlite3
+# db.sqlite3
 dashboard/migrations/__pycache__/__init__.cpython-39.pyc
 dashboard/__pycache__/views.cpython-39.pyc
 dashboard/__pycache__/urls.cpython-39.pyc
